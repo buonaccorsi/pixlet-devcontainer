@@ -1,0 +1,13 @@
+install:
+	PIXLET_VERSION=0.33.3 && \
+	mkdir ~/pixlet-install && \
+	cd ~/pixlet-install && \
+	curl -LO https://github.com/tidbyt/pixlet/releases/download/v$${PIXLET_VERSION}/pixlet_$${PIXLET_VERSION}_linux_amd64.tar.gz && \
+	tar -xvf *.gz && \
+	chmod +x ./pixlet && \
+	sudo mv pixlet /usr/local/bin/pixlet && \
+	rm -rf ~/pixlet-install && \
+	pixlet version
+
+run:
+	pixlet serve app.star
